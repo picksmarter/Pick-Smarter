@@ -1,0 +1,6 @@
+order,season,week,team_a,team_b,general_pick,win_pct,public_pct,leverage,ratio,quick_insight,quick_read,team_to_consider,updated_at,kickoff_time,home_team,winner,pick_result
+1,2025,0,Bills,Jets,Bills,66,54,12,1.22,"Modest positive leverage; the higher win probability carries the pick.",,,"Sample data — illustrates the archive format",,,"Bills",win
+2,2025,0,Cowboys,Eagles,Eagles,61,74,-13,0.82,"Likely winner, but heavily over-picked by the public.",,,"Sample data — illustrates the archive format",,,"Cowboys",loss
+3,2025,0,Bengals,Browns,Bengals,55,34,21,1.62,"The public is overlooking this team relative to its chance of winning.",,,"Sample data — illustrates the archive format",,,"Bengals",win
+4,2025,0,Chiefs,Raiders,Chiefs,71,79,-8,0.90,"Slightly over-picked; probability still drives the general recommendation.",,,"Sample data — illustrates the archive format",,,"Raiders",loss
+5,2025,0,Lions,Vikings,Lions,58,45,13,1.29,"Useful positive leverage; a reasonable general lean.",,,"Sample data — illustrates the archive format",,,"Lions",win

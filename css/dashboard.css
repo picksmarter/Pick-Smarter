@@ -1,0 +1,749 @@
+/* Pick Smarter — dashboard header, Quick Read, All Matchups (desktop table + mobile cards) */
+
+.dash-header {
+  background: var(--ps-navy);
+  color: var(--ps-white);
+  padding: var(--space-6) 0 var(--space-6);
+}
+
+.dash-header .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.dash-header h1 {
+  color: var(--ps-white);
+  margin-bottom: 0;
+}
+
+.dash-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+}
+
+.dash-meta strong {
+  color: var(--ps-white);
+}
+
+.dash-intro {
+  max-width: 62ch;
+  color: rgba(255, 255, 255, 0.85);
+  margin: var(--space-3) 0 0;
+  font-size: 1.02rem;
+}
+
+/* Quick Read heading — deliberately louder than other section headings
+   (All Matchups, etc. below it) since this is what should catch the eye
+   first when the page opens. */
+.quick-read-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: clamp(2.1rem, 1.7rem + 2vw, 3rem);
+  color: var(--ps-navy);
+  margin-bottom: 0;
+}
+
+.quick-read-heading .bolt-icon {
+  width: 34px;
+  height: 34px;
+  color: var(--ps-teal);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .quick-read-heading .bolt-icon { width: 40px; height: 40px; }
+}
+
+/* Quick Read — the dominant, first-scanned element */
+.quick-read-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+.quick-read-card {
+  background: var(--ps-white);
+  border: 1px solid var(--ps-border);
+  border-top: 5px solid var(--ps-teal);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.quick-read-card[data-kind="safest_favorite"] { border-top-color: var(--ps-navy); }
+.quick-read-card[data-kind="best_upset"] { border-top-color: var(--ps-gold); }
+
+.quick-read-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ps-teal-dark);
+}
+
+.quick-read-card[data-kind="safest_favorite"] .quick-read-label { color: var(--ps-navy); }
+.quick-read-card[data-kind="best_upset"] .quick-read-label { color: var(--ps-gold); }
+
+.quick-read-label .icon { width: 18px; height: 18px; }
+
+.quick-read-matchup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.quick-read-team {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--ps-navy);
+  line-height: 1.05;
+}
+
+.quick-read-vs {
+  color: var(--ps-ink-faint);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.quick-read-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  border-top: 1px solid var(--ps-border);
+  border-bottom: 1px solid var(--ps-border);
+  padding: var(--space-3) 0;
+}
+
+.quick-read-stat {
+  text-align: center;
+}
+
+.quick-read-stat .stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--ps-navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.quick-read-stat .stat-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ps-ink-faint);
+  margin-top: 0.15em;
+}
+
+.quick-read-insight {
+  margin: 0;
+  color: var(--ps-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 900px) {
+  .quick-read-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* "What do these numbers mean?" is handled by .accordion-item in components.css */
+
+/* All Matchups — desktop table */
+.matchups-table-wrap {
+  display: none;
+}
+
+.matchups-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--ps-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.matchups-table caption {
+  text-align: left;
+  padding: var(--space-4) var(--space-5) 0;
+  font-weight: 600;
+  color: var(--ps-ink-soft);
+}
+
+.matchups-table thead th {
+  background: var(--ps-cream-soft);
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ps-ink-faint);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--ps-border-strong);
+  border-right: 1px solid var(--ps-border);
+}
+
+.matchups-table thead th:last-child {
+  border-right: none;
+}
+
+.matchups-table tbody td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--ps-border-strong);
+  border-right: 1px solid var(--ps-border);
+  vertical-align: top;
+  font-size: 0.95rem;
+}
+
+.matchups-table tbody td:last-child {
+  border-right: none;
+}
+
+.matchups-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.matchups-table tbody tr:hover {
+  background: var(--ps-cream-soft);
+}
+
+.mt-matchup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 600;
+  color: var(--ps-navy);
+  white-space: nowrap;
+}
+
+.mt-matchup .kickoff {
+  display: block;
+  font-weight: 400;
+  color: var(--ps-ink-faint);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.mt-insight {
+  color: var(--ps-ink-soft);
+  font-size: 0.88rem;
+  max-width: 26ch;
+}
+
+/* All Matchups — mobile purpose-built card list (not a shrunk table) */
+.matchups-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.matchup-card {
+  background: var(--ps-white);
+  border: 1px solid var(--ps-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-card);
+}
+
+.matchup-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.matchup-teams {
+  font-size: 0.85rem;
+  color: var(--ps-ink-faint);
+  font-weight: 600;
+}
+
+.matchup-kickoff {
+  font-size: 0.78rem;
+  color: var(--ps-ink-faint);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.matchup-pick-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.matchup-pick-badge {
+  flex-shrink: 0;
+}
+
+.matchup-pick-team {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--ps-navy);
+  line-height: 1.1;
+}
+
+.matchup-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  background: var(--ps-cream-soft);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.matchup-stats .stat-value {
+  display: block;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--ps-navy);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.matchup-stats .stat-label {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ps-ink-faint);
+  text-align: center;
+  margin-top: 0.15em;
+}
+
+.matchup-insight {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ps-ink-soft);
+}
+
+@media (min-width: 860px) {
+  .matchups-table-wrap {
+    display: block;
+    overflow-x: auto;
+  }
+  .matchups-list {
+    display: none;
+  }
+}
+
+/* Concept intro strip near top of dashboard (Finding 4) */
+.concept-strip {
+  background: var(--ps-teal-light);
+  border: 1px solid rgba(23, 173, 187, 0.35);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  font-size: 0.98rem;
+  color: var(--ps-navy);
+  margin-bottom: var(--space-6);
+}
+
+.concept-strip strong {
+  color: var(--ps-teal-dark);
+}
+
+/* Compact "How Pick Smarter Works" header explainer — replaces the old
+   collapsible accordion with an always-visible 3-item summary. */
+.how-it-works-box {
+  background: var(--ps-white);
+  border: 1px solid var(--ps-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+  margin: var(--space-7) 0;
+}
+
+.how-it-works-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 700;
+  color: var(--ps-navy);
+  margin-bottom: var(--space-4);
+  font-size: 0.95rem;
+}
+
+.how-it-works-title .info-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--ps-ink-faint);
+  flex-shrink: 0;
+}
+
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.how-it-works-item {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.how-it-works-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ps-teal-light);
+  color: var(--ps-teal-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.how-it-works-icon--success {
+  background: var(--ps-success-light);
+  color: var(--ps-success);
+}
+
+.how-it-works-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.how-it-works-item h3 {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin: 0 0 0.2em;
+  color: var(--ps-navy);
+}
+
+.how-it-works-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ps-ink-soft);
+}
+
+@media (min-width: 900px) {
+  .how-it-works-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Pick block — team + Pick Smarter Pick badge + win-chance number + bar.
+   Used inside both the desktop table's pick column and the mobile card. */
+.pick-block {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* Favorite + positive leverage at once is the clearest signal the site
+   can show — light green, matching the "always take it" guidance. */
+.pick-block--positive-leverage {
+  background: var(--ps-success-light);
+  border: 1.5px solid var(--ps-success);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+}
+
+.pick-block-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.pick-block-team {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--ps-navy);
+  margin: 0.2em 0 0.3em;
+}
+
+.pick-block-stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4em;
+  margin-bottom: 0.3em;
+}
+
+.pick-block-pct {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--ps-navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.pick-block-pct-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ps-ink-faint);
+}
+
+.pick-block-secondary-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em 1em;
+  margin-top: var(--space-2);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ps-navy);
+  align-items: center;
+}
+
+.pick-block-secondary-label {
+  font-weight: 500;
+  color: var(--ps-ink-faint);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Probability bar — 0-100 scale everywhere; number is always shown as
+   text alongside it, this is supporting visualization only. */
+.prob-bar {
+  height: 8px;
+  width: 100%;
+  max-width: 180px;
+  background: var(--ps-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.prob-bar-fill {
+  height: 100%;
+  background: var(--ps-teal);
+  border-radius: 999px;
+}
+
+/* Strategic Read — the core visual-contrast mechanism. Gold should be
+   rare and noticeable; quiet should be the default for most rows. */
+.strategic-read {
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+}
+
+.strategic-read--quiet {
+  background: transparent;
+}
+
+.strategic-read--quiet .strategic-read-label {
+  color: var(--ps-ink-faint);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.strategic-read--quiet .strategic-read-label svg {
+  color: var(--ps-ink-faint);
+}
+
+.strategic-read--gold {
+  background: var(--ps-gold-light);
+  border: 1.5px solid var(--ps-gold);
+}
+
+.strategic-read--gold .strategic-read-label {
+  color: var(--ps-gold);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.strategic-read-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.strategic-read-label svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.strategic-read-team {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-2) 0;
+}
+
+.strategic-read-team-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--ps-navy);
+}
+
+.strategic-read-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em 0.9em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ps-navy);
+  align-items: center;
+}
+
+/* Upsets Worth a Look — dynamic 1/2/3-card hero section, above All Matchups */
+.upsets-intro {
+  color: var(--ps-ink-soft);
+  max-width: 68ch;
+  margin: 0 0 var(--space-5);
+}
+
+.upsets-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.upsets-heading .star-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--ps-gold);
+  flex-shrink: 0;
+}
+
+.upset-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.upset-card {
+  background: var(--ps-white);
+  border: 1.5px solid var(--ps-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+}
+
+.upset-card-matchup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.upset-card-team {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--ps-navy);
+  line-height: 1.1;
+}
+
+.upset-card-vs {
+  color: var(--ps-ink-faint);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.upset-card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  border-top: 1px solid var(--ps-border);
+  border-bottom: 1px solid var(--ps-border);
+  padding: var(--space-3) 0;
+  margin-bottom: var(--space-3);
+}
+
+.upset-card-stat {
+  text-align: center;
+}
+
+.upset-card-stat .stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--ps-navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.upset-card-stat .stat-label {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ps-ink-faint);
+  margin-top: 0.15em;
+}
+
+.upset-card-insight {
+  margin: 0;
+  color: var(--ps-ink-soft);
+  font-size: 0.9rem;
+}
+
+/* Single featured upset: don't stretch it absurdly wide */
+.upset-cards-grid[data-count="1"] {
+  max-width: 480px;
+}
+
+@media (min-width: 700px) {
+  .upset-cards-grid[data-count="2"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .upset-cards-grid[data-count="3"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Personalized Picks teaser — not a paywall, the free product stays complete */
+.personalized-teaser {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.personalized-teaser-cta {
+  background: var(--ps-teal);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.personalized-teaser-cta h3 {
+  color: var(--ps-navy);
+  margin: 0 0 0.2em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.personalized-teaser-cta p {
+  margin: 0;
+  color: rgba(11, 36, 64, 0.75);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 700px) {
+  .personalized-teaser {
+    flex-direction: row;
+    align-items: center;
+  }
+  .personalized-teaser-cta {
+    flex: 0 0 auto;
+    min-width: 320px;
+  }
+}

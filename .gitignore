@@ -1,0 +1,6 @@
+# Raw source assets and local tool config — not needed for the live site
+Media/
+
+# OS junk
+.DS_Store
+Thumbs.db

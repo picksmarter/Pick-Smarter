@@ -1,0 +1,6 @@
+order,season,week,team_a,team_b,general_pick,win_pct,public_pct,leverage,ratio,quick_insight,quick_read,team_to_consider,updated_at,kickoff_time,home_team,winner,pick_result
+1,2025,0,Georgia,Clemson,Georgia,68,58,10,1.17,Modest positive leverage; the higher win probability carries the pick.,,,Sample data — illustrates the archive format,,,Georgia,win
+2,2025,0,Michigan,Texas,Texas,64,77,-13,0.83,"Likely winner, but heavily over-picked by the public.",,,Sample data — illustrates the archive format,,,Michigan,loss
+3,2025,0,Utah,Florida,Utah,54,31,23,1.74,The public is overlooking this team relative to its chance of winning.,,,Sample data — illustrates the archive format,,,Utah,win
+4,2025,0,Oklahoma,Tennessee,Tennessee,59,66,-7,0.89,Slightly over-picked; probability still drives the general recommendation.,,,Sample data — illustrates the archive format,,,Oklahoma,loss
+5,2025,0,Wisconsin,Iowa,Wisconsin,52,41,11,1.27,Useful positive leverage; a reasonable general lean.,,,Sample data — illustrates the archive format,,,Wisconsin,win

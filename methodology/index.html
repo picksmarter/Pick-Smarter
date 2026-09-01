@@ -1,0 +1,162 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology — How Pick Smarter Calculates Recommendations</title>
+<meta name="description" content="A transparent look at how Pick Smarter turns sportsbook odds into win probability, compares it to public pick behavior, and produces a recommendation — including its limitations.">
+<link rel="canonical" href="/methodology/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Methodology — How Pick Smarter Calculates Recommendations">
+<meta property="og:description" content="How Win %, Public %, Leverage, and the Pick Smarter Pick are calculated — and what they don't tell you.">
+<meta property="og:image" content="/assets/brand/og-fox-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/components.css">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand-mark" href="/">
+      <img src="/assets/brand/pick-smarter-logo-header.png" alt="Pick Smarter" width="160" height="60">
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="picks-menu">
+            Pick'ems
+            <svg class="nav-dropdown-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7l5 6 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="picks-menu">
+            <li><a href="/college/">College Football Pick'em</a></li>
+            <li><a href="/nfl/">NFL Pick'em</a></li>
+          </ul>
+        </li>
+        <li><a href="/learn/">Learn</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li class="mobile-nav-dropdown">
+        <button class="accordion-trigger mobile-nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="mobile-picks-menu">
+          <span>Pick'ems</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7l5 6 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="mobile-nav-dropdown-menu" id="mobile-picks-menu" hidden>
+          <li><a href="/college/">College Football Pick'em</a></li>
+          <li><a href="/nfl/">NFL Pick'em</a></li>
+        </ul>
+      </li>
+      <li><a href="/learn/">Learn</a></li>
+      <li><a href="/about/">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="page-hero page-hero--tight">
+    <div class="container">
+      <span class="eyebrow">Methodology</span>
+      <h1>How Pick Smarter calculates a recommendation</h1>
+      <p style="max-width: 60ch; color: var(--ps-ink-soft); font-size: 1.05rem;">
+        Every number on the dashboard comes from a documented process, not a black box. Here's exactly how it works — and where its limits are.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="prose">
+
+      <h2>Where Win % comes from</h2>
+      <p>We start from sportsbook moneylines for each matchup. A moneyline can be converted directly into an <strong>implied probability</strong> — the win chance the betting market is pricing in.</p>
+
+      <h3>Removing the vig</h3>
+      <p>A sportsbook's two implied probabilities for a game always add up to a bit more than 100%. That extra amount is the sportsbook's built-in margin, commonly called the <strong>vig</strong> (or juice). Before we can call a number a fair "Win %," we remove the vig by scaling both sides down proportionally so they sum to exactly 100%. The result is what we display as <strong>Win %</strong> — our best estimate of each team's true chance to win, independent of the sportsbook's margin.</p>
+
+      <h2>Public %</h2>
+      <p><strong>Public %</strong> is how often real Pick'em entries are selecting a given team, sourced from the pool or platform's own pick distribution (for example, ESPN's Pick'em pick percentages). It reflects what people are actually doing, not what they should do.</p>
+
+      <h2>Leverage</h2>
+      <p><strong>Leverage</strong> is the gap between those two numbers:</p>
+      <p style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--ps-navy);">Leverage = Win % − Public %</p>
+      <p>Positive leverage means a team's real win probability is higher than how often the public is picking it — the public may be under-valuing it. Negative leverage means the opposite: the public is picking a team more often than its win probability alone would justify.</p>
+      <p>Leverage is the core idea behind Pick Smarter, but it is a <em>signal</em>, not a rule to follow blindly on its own — see below.</p>
+
+      <h2>The Pick Smarter Pick (General Pick)</h2>
+      <p>Each matchup gets one recommendation. It's chosen by combining Win % and Leverage into a single score for each team:</p>
+      <p style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--ps-navy);">General Score = Win % + λ &times; Leverage</p>
+      <p>By default λ (lambda) is 1, which simplifies to <code>General Score = (2 &times; Win %) − Public %</code>. Whichever team has the higher General Score becomes the <strong>Pick Smarter Pick</strong> for that game. This is a deliberately simple, transparent formula — not a proprietary model we're hiding.</p>
+
+      <h3>Why high leverage doesn't automatically mean "pick that team"</h3>
+      <p>A team can have excellent leverage and still be a poor pick if its underlying win probability is low. Very high leverage often comes from a team with a modest chance to win that almost nobody is picking — differentiation without much underlying quality. The General Score formula weighs both factors together instead of chasing leverage alone.</p>
+
+      <h3>Why a heavily over-picked favorite can still be the right call</h3>
+      <p>The reverse also happens: a team can have negative leverage (the public is picking it even more than its win probability suggests) and still be the recommended pick, because its win probability is high enough to outweigh the leverage penalty. A 77% favorite that 91% of the public is on can still be a perfectly reasonable — if unexciting — pick.</p>
+
+      <h2>Ratio</h2>
+      <p>We also track <strong>Ratio</strong> (Win % ÷ Public %) internally. It expresses the same relationship as Leverage but as a multiplier instead of a difference — useful for some kinds of analysis, but easy to misread at a glance. That's why Ratio isn't shown on the main weekly dashboard; it's supported in the data and explained here for anyone who wants it.</p>
+
+      <h2>Data timestamps</h2>
+      <p>Every report shows an "Updated" timestamp. Odds and public pick percentages move — sometimes quickly — right up until games lock, so a report reflects a snapshot at that specific time, not a live feed.</p>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li>Win % is a probability estimate, not a certainty. A 75% favorite still loses 1 in 4 times, on average.</li>
+        <li>Public % reflects the pool or platform it's sourced from, which may not exactly match the composition of your specific pool.</li>
+        <li>The General Pick formula is one reasonable way to combine two signals — it is not the only valid strategy, and it does not account for your specific pool size, standings, or how far behind or ahead you are.</li>
+        <li>Data can be delayed relative to the moment you're viewing the page.</li>
+      </ul>
+
+      <h2>No guarantee of outcomes</h2>
+      <p>Pick Smarter is a decision-support tool, not a prediction guarantee. Every recommendation is based on probability, and probability means some recommended picks will lose. Nothing on this site should be read as a promise about any game's outcome.</p>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/assets/brand/pick-smarter-logo-header.png" alt="Pick Smarter" width="140" height="52">
+        <p>Pick Smarter compares real win probability against public pick behavior to help you make sharper Pick'em decisions — free, every week.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Picks</h4>
+        <ul>
+          <li><a href="/college/">College Football</a></li>
+          <li><a href="/nfl/">NFL</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/learn/">Strategy Hub</a></li>
+          <li><a href="/methodology/">Methodology</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Stay Updated</h4>
+        <ul>
+          <li><a href="/#newsletter">Get Pick Smarter Before Lock</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Pick Smarter. All picks are for entertainment purposes; no outcome is guaranteed.</span>
+      <span class="footer-disclaimer">Not affiliated with the NCAA, NFL, ESPN, or any team, league, or sportsbook.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/nav.js"></script>

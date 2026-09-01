@@ -1,0 +1,360 @@
+/* Pick Smarter — header, nav, footer, page containers */
+
+.site-header {
+  background: var(--ps-navy);
+  color: var(--ps-white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Any element that's a same-page anchor target (e.g. linked from another
+   page with a #hash) needs this, or the sticky header covers its top
+   when the browser jumps straight to it. */
+.anchor-target {
+  scroll-margin-top: 96px;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--ps-white);
+  flex-shrink: 0;
+}
+
+.brand-mark img {
+  height: 28px;
+  width: auto;
+}
+
+.brand-mark-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.brand-mark-text span {
+  color: var(--ps-teal);
+}
+
+.main-nav {
+  display: none;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-5);
+}
+
+.main-nav a {
+  color: var(--ps-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: var(--space-2) 0;
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
+  border-bottom-color: var(--ps-teal);
+}
+
+/* Desktop "Pick'ems" dropdown — opens on hover (mouse) or click
+   (keyboard/touch, via nav.js), closes on outside click or Escape. */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-trigger {
+  background: none;
+  border: none;
+  color: var(--ps-white);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: var(--space-2) var(--space-3);
+  margin: 0 calc(var(--space-3) * -1);
+  border-radius: 999px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-dropdown-trigger:hover,
+.nav-dropdown.is-open .nav-dropdown-trigger {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-dropdown.is-active .nav-dropdown-trigger {
+  background: rgba(23, 173, 187, 0.16);
+  color: var(--ps-teal);
+}
+
+.nav-dropdown-chevron {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-chevron,
+.nav-dropdown.is-open .nav-dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  margin: 0;
+  padding: var(--space-2) 0;
+  list-style: none;
+  background: var(--ps-navy-700);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  z-index: 200;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  color: var(--ps-white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  border-bottom: none;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ps-teal);
+}
+
+/* Mobile "Pick'ems" disclosure — reuses the site's existing accordion
+   JS (.accordion-trigger / aria-controls / [hidden]), restyled for the
+   dark mobile-nav panel instead of a light card. */
+.mobile-nav-dropdown-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  color: var(--ps-white);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-dropdown-trigger .chevron {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mobile-nav-dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--space-4);
+}
+
+.mobile-nav-dropdown-menu a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--ps-white);
+  border-radius: var(--radius-sm);
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.nav-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+.mobile-nav {
+  display: none;
+  background: var(--ps-navy-700);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mobile-nav.is-open {
+  display: block;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-3) var(--space-5) var(--space-5);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav a {
+  color: var(--ps-white);
+  text-decoration: none;
+  font-weight: 600;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: block;
+}
+
+.mobile-nav a[aria-current="page"] {
+  color: var(--ps-teal);
+}
+
+main {
+  display: block;
+  min-height: 60vh;
+}
+
+.site-footer {
+  background: var(--ps-navy);
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: var(--space-8);
+}
+
+.site-footer .container {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-6);
+}
+
+.footer-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+  margin-bottom: var(--space-6);
+}
+
+.footer-brand img {
+  height: 26px;
+  margin-bottom: var(--space-3);
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  max-width: 32em;
+}
+
+.footer-col h4 {
+  color: var(--ps-white);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer-col a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.footer-col a:hover {
+  color: var(--ps-teal);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: var(--space-5);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
+}
+
+.footer-disclaimer {
+  max-width: 60em;
+}
+
+@media (min-width: 900px) {
+  .main-nav { display: block; }
+  .nav-toggle { display: none; }
+  .mobile-nav { display: none !important; }
+
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  }
+}
+
+.page-hero {
+  padding: var(--space-7) 0 var(--space-6);
+}
+
+.page-hero--tight {
+  padding: var(--space-6) 0 var(--space-5);
+}
+
+section + section {
+  margin-top: var(--space-7);
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--ps-ink-soft);
+}

@@ -1,0 +1,258 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pick Smarter — Make Picks Designed to Beat Your Pool</title>
+<meta name="description" content="Pick Smarter compares real win probability against public pick behavior for College Football and NFL Pick'em, so you can see where the crowd is over- or under-valuing a team — free, every week.">
+<link rel="canonical" href="/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pick Smarter — Make Picks Designed to Beat Your Pool">
+<meta property="og:description" content="See where real win probability and public picks disagree — and what that means for your Pick'em decisions.">
+<meta property="og:image" content="/assets/brand/og-fox-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/dashboard.css">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand-mark" href="/">
+      <img src="/assets/brand/pick-smarter-logo-header.png" alt="Pick Smarter" width="160" height="60">
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="picks-menu">
+            Pick'ems
+            <svg class="nav-dropdown-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7l5 6 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="picks-menu">
+            <li><a href="/college/">College Football Pick'em</a></li>
+            <li><a href="/nfl/">NFL Pick'em</a></li>
+          </ul>
+        </li>
+        <li><a href="/learn/">Learn</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="/" aria-current="page">Home</a></li>
+      <li class="mobile-nav-dropdown">
+        <button class="accordion-trigger mobile-nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="mobile-picks-menu">
+          <span>Pick'ems</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7l5 6 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="mobile-nav-dropdown-menu" id="mobile-picks-menu" hidden>
+          <li><a href="/college/">College Football Pick'em</a></li>
+          <li><a href="/nfl/">NFL Pick'em</a></li>
+        </ul>
+      </li>
+      <li><a href="/learn/">Learn</a></li>
+      <li><a href="/about/">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <div style="max-width: 42em; margin: 0 auto; text-align: center;">
+        <span class="badge badge-teal" style="margin-bottom: var(--space-4);">100% free</span>
+        <h1>Make Picks Designed To Beat Your Pool.</h1>
+        <p style="font-size: 1.15rem; color: var(--ps-ink-soft); margin-bottom: var(--space-5);">
+          See where real win probability and public picks disagree — and what that means for your Pick'em decisions.
+        </p>
+        <div class="btn-group" style="justify-content: center;">
+          <a class="btn btn-primary" href="/college/">College Football Picks</a>
+          <a class="btn btn-secondary" href="/nfl/">NFL Picks</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-heading">
+        <h2>How Pick Smarter works</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-number">1</span>
+          <div>
+            <h3>We compare win probability to public picks</h3>
+            <p>Every matchup gets a fair win probability (sportsbook odds with the vig removed) alongside how often the public is actually picking each team.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-number">2</span>
+          <div>
+            <h3>We look for the gap</h3>
+            <p>When a team's real chance to win is meaningfully better than its public pick share suggests, that's leverage worth knowing about.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-number">3</span>
+          <div>
+            <h3>You get one clear recommendation</h3>
+            <p>Every game gets a single Pick Smarter Pick, in plain language — no spreadsheet required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2>This week's reports</h2>
+          <p>A preview of the Best Leverage Pick from each report — open either one for the full slate.</p>
+        </div>
+      </div>
+      <div class="report-preview-grid">
+        <div class="report-preview">
+          <div class="report-preview-head">
+            <h3>College Football</h3>
+            <span id="college-preview-week"></span>
+          </div>
+          <div id="college-preview"></div>
+          <a class="btn btn-outline" href="/college/">See the full College report</a>
+        </div>
+        <div class="report-preview">
+          <div class="report-preview-head">
+            <h3>NFL</h3>
+            <span id="nfl-preview-week"></span>
+          </div>
+          <div id="nfl-preview"></div>
+          <a class="btn btn-outline" href="/nfl/">See the full NFL report</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="container">
+      <div class="newsletter">
+        <h2>Get Pick Smarter Before Lock</h2>
+        <p>Get the week's biggest leverage spots and the full report before your picks lock.</p>
+        <div class="newsletter-embed-slot">
+          <form data-kit-signup-form>
+            <div class="newsletter-choices">
+              <label><input type="radio" name="list" value="college" checked> College Football</label>
+              <label><input type="radio" name="list" value="nfl"> NFL</label>
+              <label><input type="radio" name="list" value="both"> Both</label>
+            </div>
+            <div class="field">
+              <label for="newsletter-email">Email address</label>
+              <input type="email" id="newsletter-email" name="email_address" placeholder="you@email.com" required>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Get the report before lock</button>
+            <p class="field-hint">Free, every week. Unsubscribe anytime.</p>
+            <p class="newsletter-attribution"><a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" target="_blank" rel="nofollow noopener">Built with Kit</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2>Strategy &amp; the Learn hub</h2>
+          <p>Short reads on the ideas behind the recommendations.</p>
+        </div>
+        <a class="btn btn-outline" href="/learn/">Browse all articles</a>
+      </div>
+      <div class="steps" style="grid-template-columns: 1fr;">
+      </div>
+      <div class="report-preview-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <article class="article-card card card-pad">
+          <span class="eyebrow">Strategy</span>
+          <a href="/learn/what-is-leverage/"><h3>What Is Leverage in Pick'em?</h3></a>
+          <p>The one idea that explains almost every Pick Smarter recommendation.</p>
+        </article>
+        <article class="article-card card card-pad">
+          <span class="eyebrow">Strategy</span>
+          <a href="/learn/why-most-likely-winner-isnt-best-pool-pick/"><h3>Why the Most Likely Winner Isn't Always the Best Pool Pick</h3></a>
+          <p>Winning your pool is a different problem than picking correctly.</p>
+        </article>
+        <article class="article-card card card-pad">
+          <span class="eyebrow">Strategy</span>
+          <a href="/learn/how-to-read-the-dashboard/"><h3>How to Read the Pick Smarter Dashboard</h3></a>
+          <p>A two-minute walkthrough of Win %, Public %, Leverage, and the Pick.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/assets/brand/pick-smarter-logo-header.png" alt="Pick Smarter" width="140" height="52">
+        <p>Pick Smarter compares real win probability against public pick behavior to help you make sharper Pick'em decisions — free, every week.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Picks</h4>
+        <ul>
+          <li><a href="/college/">College Football</a></li>
+          <li><a href="/nfl/">NFL</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/learn/">Strategy Hub</a></li>
+          <li><a href="/methodology/">Methodology</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Stay Updated</h4>
+        <ul>
+          <li><a href="#newsletter">Get Pick Smarter Before Lock</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Pick Smarter. All picks are for entertainment purposes; no outcome is guaranteed.</span>
+      <span class="footer-disclaimer">Not affiliated with the NCAA, NFL, ESPN, or any team, league, or sportsbook.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/csv.js"></script>
+<script src="/js/data-loader.js"></script>
+<script src="/js/dashboard.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/newsletter.js"></script>
+<script>
+  initHomePreview({
+    csvPath: '/data/college-current.csv',
+    sourceLabel: 'College Football',
+    mountEl: document.getElementById('college-preview'),
+    week: document.getElementById('college-preview-week'),
+    reportHref: '/college/',
+  });
+  initHomePreview({
+    csvPath: '/data/nfl-current.csv',
+    sourceLabel: 'NFL',
+    mountEl: document.getElementById('nfl-preview'),
+    week: document.getElementById('nfl-preview-week'),
+    reportHref: '/nfl/',
+  });
+</script>

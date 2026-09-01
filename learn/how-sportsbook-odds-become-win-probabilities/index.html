@@ -1,0 +1,138 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Sportsbook Odds Become Win Probabilities | Pick Smarter</title>
+<meta name="description" content="A moneyline isn't a probability by itself — it includes the sportsbook's margin. Here's how that margin gets removed to produce a fair win probability.">
+<link rel="canonical" href="/learn/how-sportsbook-odds-become-win-probabilities/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Sportsbook Odds Become Win Probabilities">
+<meta property="og:description" content="What a moneyline actually says, and why the vig has to come out first.">
+<meta property="og:image" content="/assets/brand/og-fox-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/components.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How Sportsbook Odds Become Win Probabilities","description":"What a moneyline actually says, and why the vig has to come out first.","publisher":{"@type":"Organization","name":"Pick Smarter"}}
+</script>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand-mark" href="/">
+      <img src="/assets/brand/pick-smarter-logo-header.png" alt="Pick Smarter" width="160" height="60">
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="picks-menu">
+            Pick'ems
+            <svg class="nav-dropdown-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7l5 6 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="picks-menu">
+            <li><a href="/college/">College Football Pick'em</a></li>
+            <li><a href="/nfl/">NFL Pick'em</a></li>
+          </ul>
+        </li>
+        <li><a href="/learn/" aria-current="page">Learn</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li class="mobile-nav-dropdown">
+        <button class="accordion-trigger mobile-nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="mobile-picks-menu">
+          <span>Pick'ems</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7l5 6 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="mobile-nav-dropdown-menu" id="mobile-picks-menu" hidden>
+          <li><a href="/college/">College Football Pick'em</a></li>
+          <li><a href="/nfl/">NFL Pick'em</a></li>
+        </ul>
+      </li>
+      <li><a href="/learn/" aria-current="page">Learn</a></li>
+      <li><a href="/about/">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="page-hero page-hero--tight">
+    <div class="container">
+      <a href="/learn/" class="eyebrow" style="text-decoration: none;">&larr; Learn</a>
+      <h1>How Sportsbook Odds Become Win Probabilities</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <article class="prose">
+      <p>Win % on the Pick Smarter dashboard starts life as a sportsbook moneyline. Getting from one to the other takes two steps: converting the moneyline to an implied probability, then removing the sportsbook's margin.</p>
+
+      <h2>Step 1: Moneyline to implied probability</h2>
+      <p>A moneyline is simply a payout structure written as odds. A negative moneyline (like -190) tells you how much you'd need to bet to win $100; a positive moneyline (like +160) tells you how much you'd win on a $100 bet. Converting either format into an implied probability is a standard, well-known calculation — the math itself isn't proprietary, and you'll find the same conversion formulas published across the sports betting industry.</p>
+
+      <h2>Step 2: Removing the vig</h2>
+      <p>Here's the catch: if you convert both sides of a matchup to implied probability and add them together, they won't sum to exactly 100%. They'll sum to a bit more — typically somewhere in the low single digits over. That extra percentage is the sportsbook's built-in margin, the vig (short for "vigorish"), and it's how the book makes money regardless of the outcome.</p>
+      <p>Because that margin is baked into both sides, neither raw implied probability is a fair estimate on its own. To fix that, we scale both sides down proportionally so they sum to exactly 100% — a standard, widely used method often called "de-vigging" or removing the vig. The result is what Pick Smarter shows as <strong>Win %</strong>: our best fair estimate of each team's true chance to win, with the sportsbook's margin stripped out.</p>
+
+      <h2>Why this matters for Pick'em</h2>
+      <p>Using the raw, un-devigged number would systematically overstate both teams' chances (since the two sides sum to more than 100%), which would throw off every downstream calculation — especially <a href="/learn/what-is-leverage/">Leverage</a>, which depends on Win % being a fair, apples-to-apples number. See <a href="/methodology/">Methodology</a> for how Win %, Public %, and Leverage fit together after this step.</p>
+
+      <div class="card card-pad" style="margin-top: var(--space-6);">
+        <h3 style="margin-top: 0;">See it in action</h3>
+        <p style="margin-bottom: var(--space-4);">Every Win % on the dashboard has already had the vig removed — no extra math required from you.</p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="/college/">College Football Picks</a>
+          <a class="btn btn-secondary" href="/nfl/">NFL Picks</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/assets/brand/pick-smarter-logo-header.png" alt="Pick Smarter" width="140" height="52">
+        <p>Pick Smarter compares real win probability against public pick behavior to help you make sharper Pick'em decisions — free, every week.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Picks</h4>
+        <ul>
+          <li><a href="/college/">College Football</a></li>
+          <li><a href="/nfl/">NFL</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/learn/">Strategy Hub</a></li>
+          <li><a href="/methodology/">Methodology</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Stay Updated</h4>
+        <ul>
+          <li><a href="/#newsletter">Get Pick Smarter Before Lock</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Pick Smarter. All picks are for entertainment purposes; no outcome is guaranteed.</span>
+      <span class="footer-disclaimer">Not affiliated with the NCAA, NFL, ESPN, or any team, league, or sportsbook.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/nav.js"></script>

@@ -1,0 +1,413 @@
+/* Pick Smarter — About page only. Nothing in this file is referenced
+   outside about/index.html; it exists specifically so About-page styling
+   never has to touch the shared stylesheets. */
+
+.about-subhead {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  color: var(--ps-navy);
+  max-width: 42ch;
+  margin: var(--space-3) 0 0;
+}
+
+.about-intro {
+  max-width: 60ch;
+  color: var(--ps-ink-soft);
+  font-size: 1.02rem;
+  margin: var(--space-3) 0 0;
+}
+
+/* Section 2 — The $100 Experiment */
+.experiment-card {
+  padding: var(--space-6);
+  border-top: 5px solid var(--ps-teal);
+}
+
+.experiment-eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 1.1rem + 1vw, 1.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ps-teal-dark);
+  margin-bottom: var(--space-2);
+}
+
+.experiment-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  align-items: center;
+  margin-top: var(--space-4);
+}
+
+.experiment-figure {
+  background: var(--ps-navy);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.experiment-figure-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  width: 100%;
+  text-align: center;
+}
+
+.experiment-figure-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.experiment-figure-number--big {
+  font-size: 3rem;
+  color: var(--ps-teal);
+}
+
+.experiment-figure-arrow {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.4rem;
+}
+
+.experiment-copy h2 {
+  font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.7rem);
+}
+
+.experiment-followup {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ps-teal-dark);
+  margin: 0.5em 0 var(--space-4);
+}
+
+.callout-line {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ps-teal-dark);
+  border-left: 3px solid var(--ps-teal);
+  padding-left: var(--space-4);
+  margin: var(--space-5) 0;
+}
+
+@media (min-width: 800px) {
+  .experiment-layout {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+/* Section 3 — mini stat cards + quicklinks */
+.mini-stat-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+
+.mini-stat-card h3 {
+  color: var(--ps-teal-dark);
+  margin-bottom: 0.4em;
+}
+
+.mini-stat-card p {
+  margin: 0;
+  color: var(--ps-ink-soft);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 700px) {
+  .mini-stat-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-quicklinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.about-quicklinks a {
+  font-weight: 700;
+  color: var(--ps-teal-dark);
+  text-decoration: none;
+}
+
+.about-quicklinks a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+  .about-quicklinks {
+    flex-direction: row;
+    gap: var(--space-6);
+  }
+}
+
+/* Section 4 — results callout */
+.results-callout {
+  margin: var(--space-5) 0;
+  border-left: 5px solid var(--ps-navy);
+}
+
+.results-callout h3 {
+  margin-bottom: 0.3em;
+}
+
+.results-list {
+  list-style: none;
+  margin: var(--space-4) 0 var(--space-2);
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.result-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4em 0.8em;
+  padding: var(--space-3) var(--space-4);
+  background: var(--ps-cream-soft);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+}
+
+.result-name {
+  font-weight: 700;
+  color: var(--ps-navy);
+  flex-basis: 100%;
+}
+
+.result-stat {
+  color: var(--ps-ink-soft);
+}
+
+.result-stat strong {
+  color: var(--ps-teal-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.result-item a {
+  color: var(--ps-teal-dark);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: auto;
+}
+
+.result-item a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .result-name {
+    flex-basis: auto;
+    margin-right: auto;
+  }
+}
+
+/* Section 5 — timeline */
+.about-timeline {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+.timeline-stage {
+  background: var(--ps-white);
+  border: 1px solid var(--ps-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  position: relative;
+}
+
+.timeline-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--ps-teal-light);
+  margin-bottom: var(--space-3);
+}
+
+.timeline-icon {
+  width: 26px;
+  height: 26px;
+  color: var(--ps-teal-dark);
+}
+
+.timeline-stage h3 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.4em;
+}
+
+.timeline-stage p {
+  margin: 0;
+  color: var(--ps-ink-soft);
+  font-size: 0.92rem;
+}
+
+@media (min-width: 900px) {
+  .about-timeline {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  .timeline-stage:not(:last-child)::after {
+    content: '\2192';
+    position: absolute;
+    top: 50%;
+    right: -28px;
+    transform: translateY(-50%);
+    font-size: 1.3rem;
+    color: var(--ps-border-strong);
+    z-index: 1;
+  }
+}
+
+/* Section 6 — beliefs */
+.beliefs-card {
+  margin-top: var(--space-5);
+  background: var(--ps-cream-soft);
+  border-top: 4px solid var(--ps-teal);
+}
+
+.beliefs-card h3 {
+  margin-bottom: var(--space-3);
+}
+
+.beliefs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.beliefs-list li {
+  font-weight: 600;
+  color: var(--ps-navy);
+  padding-left: 1.4em;
+  position: relative;
+}
+
+.beliefs-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ps-teal);
+}
+
+/* Section 7 — roadmap */
+.roadmap-intro {
+  max-width: 65ch;
+  color: var(--ps-ink-soft);
+  margin: 0 0 var(--space-5);
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.roadmap-card p {
+  color: var(--ps-ink-soft);
+  font-size: 0.92rem;
+}
+
+.roadmap-card p:last-child {
+  margin-bottom: 0;
+}
+
+.roadmap-card h3 {
+  margin: 0.5em 0 0.4em;
+  font-size: 1.1rem;
+}
+
+.roadmap-closing {
+  margin-top: var(--space-5);
+  color: var(--ps-ink-soft);
+  font-style: italic;
+  max-width: 65ch;
+}
+
+@media (min-width: 700px) {
+  .roadmap-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .roadmap-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Section 8 — trust close */
+.trust-close {
+  background: var(--ps-navy);
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.trust-close h2 {
+  color: var(--ps-white);
+  max-width: 24ch;
+  margin: 0 auto var(--space-4);
+}
+
+.trust-close p {
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 60ch;
+  margin: 0 auto var(--space-4);
+}
+
+.trust-final-line {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ps-white) !important;
+}
+
+.trust-close .btn-group {
+  justify-content: center;
+  margin-top: var(--space-5);
+}
+
+/* .btn-outline defaults to navy border/text, which is invisible on this
+   card's navy background — invert it to white so it's actually visible. */
+.trust-close .btn-outline {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: var(--ps-white);
+}
+
+.trust-close .btn-outline:hover {
+  background: var(--ps-white);
+  color: var(--ps-navy);
+}
