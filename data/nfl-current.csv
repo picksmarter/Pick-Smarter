@@ -1,6 +1,6 @@
 order,season,week,team_a,team_b,general_pick,win_pct,public_pct,leverage,ratio,quick_insight,quick_read,team_to_consider,updated_at,kickoff_time,home_team,upset_featured,upset_rank
 1,2026,1,Patriots,Seahawks,Seahawks,62.5137817,79,-16.4862183,,"Seahawks has the higher win probability, but Patriots is being overlooked: 37.5% fair chance vs 21.0% public picks.",,,"Mon, Aug 31, 2026 – 7:15 PM CT",,,,
-2,2026,1,Rams,49ers,49ers,64.43612541,89,-24.56387459,,"49ers has the higher win probability, but Rams is being overlooked: 35.6% fair chance vs 11.0% public picks.",,,"Mon, Aug 31, 2026 – 7:15 PM CT",,,,
+2,2026,1,Rams,49ers,Rams,64.43612541,89,-24.56387459,,"Rams has the higher win probability, but 49ers is being overlooked: 35.6% fair chance vs 11.0% public picks.",,,"Mon, Aug 31, 2026 – 7:15 PM CT",,,,
 3,2026,1,Buccaneers,Bengals,Bengals,64.43612541,74,-9.563874591,,"Bengals has the higher win probability, but Buccaneers is being overlooked: 35.6% fair chance vs 26.0% public picks.",,,"Mon, Aug 31, 2026 – 7:15 PM CT",,,,
 4,2026,1,Saints,Lions,Lions,73.4648854,96,-22.5351146,,"Lions has the higher win probability, but Saints is being overlooked: 26.5% fair chance vs 4.0% public picks.",,,"Mon, Aug 31, 2026 – 7:15 PM CT",,,,
 5,2026,1,Jets,Titans,Titans,54.27435388,82,-27.72564612,,"Titans has the higher win probability, but Jets is being overlooked: 45.7% fair chance vs 18.0% public picks.",,Jets,"Mon, Aug 31, 2026 – 7:15 PM CT",,,TRUE,2
