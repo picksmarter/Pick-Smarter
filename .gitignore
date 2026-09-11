@@ -1,5 +1,6 @@
 # Raw source assets and local tool config — not needed for the live site
 Media/
+.claude/
 
 # OS junk
 .DS_Store
